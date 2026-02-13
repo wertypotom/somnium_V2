@@ -14,13 +14,15 @@ const GameFour: React.FC<GameFourProps> = ({ onComplete }) => {
 
     const trimmed = input.trim().toLowerCase();
 
-    if (trimmed === 'тамила' || trimmed === 'tamila') {
-      setMessage('не настолько все странно выглядит, чтоб писать свое имя :)');
+    // Check if input contains closing parenthesis FIRST
+    if (input.includes(')')) {
+      setMessage('Скобочки не считаются ))');
       setInput('');
       setAttempts((prev) => prev + 1);
       return;
     }
 
+    // Then check correct answer
     if (trimmed === 'я' || trimmed === 'me') {
       if (attempts >= 1) {
         setMessage('Ну ты, даешь )');
@@ -31,7 +33,25 @@ const GameFour: React.FC<GameFourProps> = ({ onComplete }) => {
       return;
     }
 
-    setMessage('Попробуй еще раз! 🤔');
+    if (trimmed === 'тамила' || trimmed === 'tamila') {
+      setMessage('не настолько все странно выглядит, чтоб писать свое имя :)');
+      setInput('');
+      setAttempts((prev) => prev + 1);
+      return;
+    }
+
+    // Random playful messages for wrong answers
+    const wrongMessages = [
+      'Попробуй еще раз! 🤔',
+      'ага, ага )',
+      'ну почти )',
+      'ну типо )',
+      'Давай еще раз )',
+      'капец ты )',
+    ];
+    const randomMessage =
+      wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
+    setMessage(randomMessage);
     setInput('');
   };
 
@@ -47,7 +67,7 @@ const GameFour: React.FC<GameFourProps> = ({ onComplete }) => {
             type='text'
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className='w-full px-6 py-4 text-2xl text-center border-4 border-pink-300 rounded-2xl focus:border-pink-500 focus:outline-none transition-all duration-300'
+            className='w-full px-6 py-4 text-2xl text-center text-gray-800 border-4 border-pink-300 rounded-2xl focus:border-pink-500 focus:outline-none transition-all duration-300'
             placeholder='Введи ответ...'
             autoFocus
           />
