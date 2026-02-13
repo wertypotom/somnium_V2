@@ -54,7 +54,7 @@ function App() {
       case 'modal1':
         return (
           <Modal
-            message='Хмм, вижу ты настроена серьёзно. Рада, что не отключила JavaScript для этого'
+            message='А ты молодец, справилась с первым уровнем. Идем дальше...'
             onClose={nextStage}
           />
         );
@@ -63,19 +63,14 @@ function App() {
       case 'modal2':
         return (
           <Modal
-            message='Ого, какая ты внимательная! Надеюсь, интернет держится крепко'
+            message='А ты внимательная, моя мадама. Продолжаем... )'
             onClose={nextStage}
           />
         );
       case 'game3':
         return <GameThree onComplete={nextStage} />;
       case 'modal3':
-        return (
-          <Modal
-            message='Отлично справляешься! Похоже, стили на месте и ты не пытаешься схитрить'
-            onClose={nextStage}
-          />
-        );
+        return <Modal message='Умничка, умничка )' onClose={nextStage} />;
       case 'game4':
         return <GameFour onComplete={nextStage} />;
       case 'modal4':

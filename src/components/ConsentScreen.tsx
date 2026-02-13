@@ -35,7 +35,7 @@ const ConsentScreen: React.FC<ConsentScreenProps> = ({ onConsent }) => {
           </div>
           <div className='flex items-start gap-3 bg-green-50 p-4 rounded-xl'>
             <span className='text-2xl'>💖</span>
-            <p className='text-gray-800'>Быть милашкой (это обязательно!)</p>
+            <p className='text-gray-800'>Быть лапочкой (это обязательно!)</p>
           </div>
         </div>
         <button
