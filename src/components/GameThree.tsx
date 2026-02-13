@@ -104,12 +104,7 @@ const GameThree: React.FC<GameThreeProps> = ({ onComplete }) => {
             };
 
             // Helper to determine which edge is being crossed
-            const getEntrySide = (
-              prevX: number,
-              prevY: number,
-              newX: number,
-              newY: number,
-            ) => {
+            const getEntrySide = (prevX: number, prevY: number) => {
               const centerX = box.x + box.width / 2;
               const centerY = box.y + box.height / 2;
 
@@ -147,12 +142,7 @@ const GameThree: React.FC<GameThreeProps> = ({ onComplete }) => {
 
             // If entering box (was outside, now inside)
             if (!wasInside && isInside) {
-              const entrySide = getEntrySide(
-                prev.x,
-                prev.y,
-                boundedX,
-                boundedY,
-              );
+              const entrySide = getEntrySide(prev.x, prev.y);
 
               if (entrySide !== box.openingSide) {
                 // Block entry - keep previous position
@@ -163,7 +153,7 @@ const GameThree: React.FC<GameThreeProps> = ({ onComplete }) => {
 
             // If exiting box (was inside, now outside) - also check if exiting through open side
             if (wasInside && !isInside) {
-              const exitSide = getEntrySide(prev.x, prev.y, boundedX, boundedY);
+              const exitSide = getEntrySide(prev.x, prev.y);
 
               if (exitSide !== box.openingSide) {
                 // Block exit through closed walls - keep previous position
