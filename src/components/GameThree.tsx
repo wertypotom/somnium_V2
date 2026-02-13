@@ -191,7 +191,7 @@ const GameThree: React.FC<GameThreeProps> = ({ onComplete }) => {
           Дотолкай сердце к цели! 💙
         </h2>
         <div className='mt-4 text-2xl font-bold'>
-          Коробок: {currentBoxIndex + 1}/{totalBoxes}
+          Раунд: {currentBoxIndex + 1}/{totalBoxes}
         </div>
       </div>
 
