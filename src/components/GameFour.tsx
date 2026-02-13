@@ -26,7 +26,7 @@ const GameFour: React.FC<GameFourProps> = ({ onComplete }) => {
     if (trimmed === 'я' || trimmed === 'me') {
       if (attempts >= 1) {
         setMessage('Ну ты, даешь )');
-        setTimeout(() => onComplete(), 2000);
+        setTimeout(() => onComplete(), 1000);
       } else {
         onComplete();
       }
